@@ -1,0 +1,21 @@
+
+Resources:
+  MyS3Bucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      AccessControl: PublicRead
+
+# encountered an error. AWS made some changes to " allow public read"
+# recommended fix below
+#
+# Delete :
+#   Properties:
+#     AccessControl: PublicRead
+#
+# Replace with:
+#   Properties:
+#         PublicAccessBlockConfiguration:
+#           BlockPublicAcls: false
+#           BlockPublicPolicy: false
+#           IgnorePublicAcls: false
+#           RestrictPublicBuckets: false
